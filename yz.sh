@@ -1,6 +1,6 @@
 echo "密码验证中"
 sleep 0.5
-FILE=/storage/emulated/0/和平鸡蛋
+FILE=/storage/emulated/0/和平喵喵喵
 if [ ! -f "$FILE" ]; then
     echo "密码错误"
 sleep 0.3
