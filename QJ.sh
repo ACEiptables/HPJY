@@ -219,26 +219,28 @@ iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d nj.cschannel
 iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d cs.mbgame.anticheatexpert.com -j REJECT
 
 
-#过更新登录
-iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 20000 -d 119.147.15.57 -j ACCEPT
-iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d 101.226.94.67 -j ACCEPT
-iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d 101.226.150.121 -j ACCEPT
-iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d 101.226.96.203 -j ACCEPT
-iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 80 -d 182.254.116.117 -j ACCEPT
-iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 8085 -d download.1.418021106.gcloudpg.qq.com -j ACCEPT
-iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d 101.226.94.67 -j ACCEPT
-iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d 101.226.150.121 -j ACCEPT
-iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d 101.226.96.203 -j ACCEPT
-iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 80 -d 182.254.116.117 -j ACCEPT
-iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 8085 -d download.1.418021106.gcloudpg.qq.com -j ACCEPT
-iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 20000 -d 119.147.15.57 -j ACCEPT
-echo -ne '                   \033[1;33m   \r'
-#下载
-iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 80 -d down.qq.com  -j ACCEPT
-#iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 50000  -j ACCEPT
+
+#iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  101.226.150.121   -j ACCEPT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  101.226.94.67   -j ACCEPT
+#iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  101.226.96.203   -j ACCEPT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 8085 -d  download.1.418021106.gcloudpg.qq.com   -j ACCEPT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 50000 -d  119.147.15.52   -j ACCEPT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 20000 -d  119.147.15.57   -j ACCEPT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 80 -d  182.254.116.117   -j ACCEPT
+
+
+
+
+#iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  101.226.150.121   -j ACCEPT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  101.226.94.67   -j ACCEPT
+#iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  101.226.96.203   -j ACCEPT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 8085 -d  download.1.418021106.gcloudpg.qq.com   -j ACCEPT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 50000 -d  119.147.15.52   -j ACCEPT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 20000 -d  119.147.15.57   -j ACCEPT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 80 -d  182.254.116.117   -j ACCEPT
 
 
 echo -ne '                   \033[1;32m  ■■■■■■■■■□90% \r'
 sleep 0.1
-echo -ne '                   \033[1;32m  ■■■■■■■■■■100% \r'
+echo -ne '                   \033[1;32m  ■■■■■■■■■■99.99% \r'
 sleep 0.1
