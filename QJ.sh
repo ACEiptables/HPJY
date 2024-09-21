@@ -240,36 +240,5 @@ iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 80 -d down.qq.com  
 
 echo -ne '                   \033[1;32m  ■■■■■■■■■□90% \r'
 sleep 0.1
-echo -ne '                   \033[1;32m  ■■■■■■■■■■100% 『1』开启  『↵』关闭\r'
+echo -ne '                   \033[1;32m  ■■■■■■■■■■100% \r'
 sleep 0.1
-test ! $? -eq 0 && exit 1
-
-
-echo -e "\e[5;46;43;37m  是否开启自启动:  \e[0m\n"
-read a
-case $a in
-1)
-sleep 0.3
-#内容
-
-echo -e "\033[32;;1m 开启 \033[0m"
-am start com.tencent.tmgp.pubgmhd/com.epicgames.ue4.SplashActivity
-
-echo -e "\033[5;46;42;37m            【 小叽猪 】                 \033[0m"
-1
-;;
-*)
-    printf "\033[31;1m关闭自启动\033[0m\n"
-exit 1
-;;
-esac
-while true
-do
-
-
-echo -ne '                   \033[1;37m ╭☞( ￣ ▽￣)╭☞    (˵¯͒〰¯͒˵)\r'
-sleep 0.1
-echo -ne '                   \033[1;37m ╭☞( ￣ ▽￣)    ╭☞(˵¯͒〰¯͒˵)\r'
-sleep 0.1
-
-done
