@@ -32,78 +32,49 @@ echo -ne '                   \033[1;33m  ■■■□□□□□□□30% \r'
 
 
 
+ip6tables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 443 -j DROP
+ip6tables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 443 -j DROP
+ip6tables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 53 -j DROP
+ip6tables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 53 -j DROP
+ip6tables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 80 -j DROP
+ip6tables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 80 -j DROP
+
+
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp -d 0.0.0.0/0 --dport 443 -j DROP  #禁止访问所有https
+
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp -d 0.0.0.0/0 --dport 80 -j DROP   #禁止访问所有http
+
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -d 0.0.0.0/0 --dport 443 -j DROP  #禁止访问所有https
+
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -d 0.0.0.0/0 --dport 80 -j DROP   #禁止访问所有http
+
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -m multiport --dports http,https -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp -m multiport --dports http,https -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p icmp -j DROP
+
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 80 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 80 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8085 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 8085 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 20000 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 443 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 20000 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 443 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 50000 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 50000 -j DROP
+
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d ipv6.mainconn.anticheatexpert.com -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d nj.cschannel.anticheatexpert.com -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d cs.mbgame.anticheatexpert.com -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d ipv6.mainconn.anticheatexpert.com -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d nj.cschannel.anticheatexpert.com -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d cs.mbgame.anticheatexpert.com -j REJECT
+#好好
 
 
 
 
 
-iptables -I OUTPUT -p udp --dport 443 -s 36.155.186.200 -j REJECT
-iptables -I OUTPUT -p udp --dport 443 -s 36.155.202.119 -j REJECT
-iptables -I OUTPUT -p udp --dport 443 -s 36.155.202.43 -j REJECT
-iptables -I OUTPUT -p udp --dport 443 -s 36.155.202.52 -j REJECT
-iptables -I OUTPUT -p udp --dport 443 -s 36.155.202.73 -j REJECT
-iptables -I OUTPUT -p udp --dport 443 -s 36.155.228.118 -j REJECT
-iptables -I OUTPUT -p udp --dport 443 -s 36.155.228.234 -j REJECT
-iptables -I OUTPUT -p udp --dport 443 -s 36.155.228.242 -j REJECT
-iptables -I OUTPUT -p udp --dport 443 -s 36.155.240.199 -j REJECT
-iptables -I OUTPUT -p udp --dport 443 -s 36.155.240.35 -j REJECT
-iptables -I OUTPUT -p udp --dport 443 -s 36.155.240.84 -j REJECT
-iptables -I OUTPUT -p udp --dport 443 -s 36.155.245.152 -j REJECT
-iptables -I OUTPUT -p udp --dport 443 -s 36.155.245.161 -j REJECT
-iptables -I OUTPUT -p udp --dport 443 -s 36.155.245.177 -j REJECT
-iptables -I OUTPUT -p udp --dport 443 -s 36.155.245.208 -j REJECT
-iptables -I OUTPUT -p udp --dport 443 -s 36.155.245.57 -j REJECT
-iptables -I OUTPUT -p udp --dport 443 -s 36.155.245.94 -j REJECT
-iptables -I OUTPUT -p udp --dport 443 -s 36.155.249.33 -j REJECT
-iptables -I OUTPUT -p udp --dport 443 -s 36.155.249.82 -j REJECT
-iptables -I OUTPUT -p udp --dport 443 -s 36.155.249.84 -j REJECT
-iptables -I OUTPUT -p udp --dport 443 -s 36.155.251.15 -j REJECT
-iptables -I OUTPUT -p tcp --dport 443 -s 36.155.186.200 -j REJECT
-iptables -I OUTPUT -p tcp --dport 443 -s 36.155.202.119 -j REJECT
-iptables -I OUTPUT -p tcp --dport 443 -s 36.155.202.43 -j REJECT
-iptables -I OUTPUT -p tcp --dport 443 -s 36.155.202.52 -j REJECT
-iptables -I OUTPUT -p tcp --dport 443 -s 36.155.202.73 -j REJECT
-iptables -I OUTPUT -p tcp --dport 443 -s 36.155.228.118 -j REJECT
-iptables -I OUTPUT -p tcp --dport 443 -s 36.155.228.234 -j REJECT
-iptables -I OUTPUT -p tcp --dport 443 -s 36.155.228.242 -j REJECT
-iptables -I OUTPUT -p tcp --dport 443 -s 36.155.240.199 -j REJECT
-iptables -I OUTPUT -p tcp --dport 443 -s 36.155.240.35 -j REJECT
-iptables -I OUTPUT -p tcp --dport 443 -s 36.155.240.84 -j REJECT
-iptables -I OUTPUT -p tcp --dport 443 -s 36.155.245.152 -j REJECT
-iptables -I OUTPUT -p tcp --dport 443 -s 36.155.245.161 -j REJECT
-iptables -I OUTPUT -p tcp --dport 443 -s 36.155.245.177 -j REJECT
-iptables -I OUTPUT -p tcp --dport 443 -s 36.155.245.208 -j REJECT
-iptables -I OUTPUT -p tcp --dport 443 -s 36.155.245.57 -j REJECT
-iptables -I OUTPUT -p tcp --dport 443 -s 36.155.245.94 -j REJECT
-iptables -I OUTPUT -p tcp --dport 443 -s 36.155.249.33 -j REJECT
-iptables -I OUTPUT -p tcp --dport 443 -s 36.155.249.82 -j REJECT
-iptables -I OUTPUT -p tcp --dport 443 -s 36.155.249.84 -j REJECT
-iptables -I OUTPUT -p tcp --dport 443 -s 36.155.251.15 -j REJECT
-iptables -I OUTPUT -p all -m string --string cs.mbgame.anticheatexpert.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string ipv6.mainconn.anticheatexpert.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string nj.cschannel.anticheatexpert.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m string --string ipv6.mainconn.anticheatexpert.com --algo bm -j REJECT
-iptables -I INPUT -p all -m string --string cs.mbgame.anticheatexpert.com --algo bm -j REJECT
-iptables -I INPUT -p all -m string --string ipv6.mainconn.anticheatexpert.com --algo bm -j REJECT
-iptables -I INPUT -p all -m string --string nj.cschannel.anticheatexpert.com --algo bm -j REJECT
-iptables -I INPUT -p all -m string --string ipv6.mainconn.anticheatexpert.com --algo bm -j REJECT
-
-
-
-
-
-
-
-
-
-iptables -A OUTPUT -m owner --uid-owner=$uid -p tcp --dport 80 -j DROP
-iptables -A OUTPUT -m owner --uid-owner=$uid -p udp --dport 80 -j DROP
-iptables -A OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8085 -j DROP
-iptables -A OUTPUT -m owner --uid-owner=$uid -p udp --dport 8085 -j DROP
-iptables -A OUTPUT -m owner --uid-owner=$uid -p udp --dport 20000 -j DROP
-iptables -A OUTPUT -m owner --uid-owner=$uid -p udp --dport 443 -j DROP
-iptables -A OUTPUT -m owner --uid-owner=$uid -p tcp --dport 20000 -j DROP
-iptables -A OUTPUT -m owner --uid-owner=$uid -p tcp --dport 443 -j DROP
 
 
 
@@ -113,23 +84,13 @@ iptables -A OUTPUT -m owner --uid-owner=$uid -p tcp --dport 443 -j DROP
 sleep 0.1
 echo -ne '                   \033[1;32m  ■■■■■■■■■□90% \r'
 sleep 0.1
+
 echo -ne '                   \033[1;32m  ■■■■■■■■■■100% \r'
 
 
 
 
-echo -e "\033[5;46;42;37m            【 演技决定一切☞百分百过禁网☜ 】                 \033[0m"
 
 
-
-
-
-
-echo -e "\033[5;46;42;37m                   \033[1;31m  大厅执行返回即可『局内需要执行』禁网就检查环境 \033[0m"
-echo -e "\033[5;46;42;37m                   \033[1;31m  当前完成 \033[0m"
-
-
-echo -e "\033[5;46;42;37m                   \033[1;31m  过程中严禁网络和流量的切换☞需要保持好的网络状态 \033[0m"
-
-echo -e "\033[5;46;42;37m            【 最新测试 】                 \033[0m"
+echo -e "\033[5;46;42;37m            【 小叽猪 】                 \033[0m"
 
