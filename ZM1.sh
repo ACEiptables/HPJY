@@ -12,7 +12,7 @@ uid=`cat /data/system/packages.list | grep com.tencent.tmgp.pubgmhd | awk '{prin
 
 
 echo -e "\033[5;46;42;37m            【 上号模式桌面 】                 \033[0m"
-echo -e "\033[5;46;42;37m            【 下面报错正常 】                 \033[0m"
+
 
 
 
@@ -189,3 +189,7 @@ sleep 0.1
 echo -ne '                   \033[1;32m  ■■■■■■■■■□90% \r'
 sleep 0.1
 
+echo -e "\033[5;46;42;37m            【 桌面开启成功 】                 \033[0m"
+echo -e "\033[5;46;42;37m            【 桌面开启成功 】                 \033[0m"
+echo -e "\033[5;46;42;37m            【 桌面开启成功 】                 \033[0m"
+echo -e "\033[5;46;42;37m            【 桌面开启成功 】                 \033[0m"
