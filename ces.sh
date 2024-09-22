@@ -210,19 +210,33 @@ echo -ne '                   \033[1;33m  ■■■□□□□□□□30% \r'
 
 
 #防禁👑
-iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d ipv6.mainconn.anticheatexpert.com -j REJECT
-iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d nj.cschannel.anticheatexpert.com -j REJECT
-iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d cs.mbgame.anticheatexpert.com -j REJECT
-iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d ipv6.mainconn.anticheatexpert.com -j REJECT
-iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d nj.cschannel.anticheatexpert.com -j REJECT
-iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d cs.mbgame.anticheatexpert.com -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  cod.wefun.vip -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  cs.mainconn.gamesafe.qq.com -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  cs.mbgame.anticheatexpert.com -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  cs.mbgame.gamesafe.qq.com -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  cschannel.anticheatexpert.com -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  ipv6.mainconn.anticheatexpert.com -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  ipv6.mainconn.gamesafe.qq.com -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  nj.cschannel.anticheatexpert.com -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  nj.payba.cn -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  cod.wefun.vip -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  cs.mainconn.gamesafe.qq.com -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  cs.mbgame.anticheatexpert.com -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  cs.mbgame.gamesafe.qq.com -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  cschannel.anticheatexpert.com -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  ipv6.mainconn.anticheatexpert.com -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  ipv6.mainconn.gamesafe.qq.com -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  nj.cschannel.anticheatexpert.com -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  nj.payba.cn -j REJECT
+
+
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 10012 -j REJECT
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 10012 -j REJECT
 
 #登录
 iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  ssl.msdk.qq.com  -j ACCEPT
 iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  ssl.msdk.qq.com  -j ACCEPT
-iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 80 -d avavav.xnfxxx.xyz  -j ACCEPT
+#iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 80 -d avavav.xnfxxx.xyz  -j ACCEPT
 #扫码   家长实名
 iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  jz.game.qq.com  -j ACCEPT
 iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  jiazhang.qq.com  -j ACCEPT
@@ -236,8 +250,8 @@ iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  open.weixin
 iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 8085 -d download.1.418021106.gcloudpg.qq.com -j ACCEPT
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport "20000" -j ACCEPT
 
-
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport "50000" -j ACCEPT
 echo -ne '                   \033[1;32m  ■■■■■■■■■□90% \r'
 sleep 0.1
-echo -ne '                   \033[1;32m  ■■■■■■■■■■100% \r'
+echo -ne '                   \033[1;32m  ■■■■■■■■■■99999999999999999999.99999999999999999% \r'
 sleep 0.1
