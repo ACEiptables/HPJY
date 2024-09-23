@@ -4,7 +4,7 @@ iptables -X
 iptables -Z
 sleep 2
 
-echo "清理完毕 上号奔放"
+echo "清理"
 
 
 uid=`cat /data/system/packages.list | grep com.tencent.tmgp.pubgmhd | awk '{print $2}'`
@@ -229,7 +229,20 @@ iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  ipv6.mainco
 iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  nj.cschannel.anticheatexpert.com -j REJECT
 #iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  nj.payba.cn -j REJECT
 
+#❤️
+iptables -I OUTPUT -p all -m  string -m owner --uid-owner=$uid --string cod.wefun.vip --algo bm -j REJECT
+iptables -I OUTPUT -p all -m  string -m owner --uid-owner=$uid --string cs.mainconn.gamesafe.qq.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m  string -m owner --uid-owner=$uid --string cs.mbgame.anticheatexpert.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m  string -m owner --uid-owner=$uid --string cs.mbgame.gamesafe.qq.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m  string -m owner --uid-owner=$uid --string cschannel.anticheatexpert.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m  string -m owner --uid-owner=$uid --string ipv6.mainconn.anticheatexpert.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m  string -m owner --uid-owner=$uid --string ipv6.mainconn.gamesafe.qq.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m  string -m owner --uid-owner=$uid --string nj.cschannel.anticheatexpert.com --algo bm -j REJECT
+iptables -I OUTPUT -p all -m  string -m owner --uid-owner=$uid --string nj.payba.cn --algo bm -j REJECT
 
+
+
+#心❤️
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 10012 -j REJECT
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 10012 -j REJECT
 
@@ -238,10 +251,10 @@ iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  ssl.msdk.qq
 iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  ssl.msdk.qq.com  -j ACCEPT
 #iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 80 -d avavav.xnfxxx.xyz  -j ACCEPT
 #扫码   家长实名
-iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  jz.game.qq.com  -j ACCEPT
-iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  jiazhang.qq.com  -j ACCEPT
-iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  openmobile.qq.com  -j ACCEPT
-iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  open.weixin.qq.com  -j ACCEPT
+#iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  jz.game.qq.com  -j ACCEPT
+#iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  jiazhang.qq.com  -j ACCEPT
+#iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  openmobile.qq.com  -j ACCEPT
+#iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  open.weixin.qq.com  -j ACCEPT
 
 
 
