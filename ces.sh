@@ -172,18 +172,6 @@ iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 50000 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 50000 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 20000 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 20000 -j DROP
-ip6tables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 443 -j DROP
-ip6tables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 443 -j DROP
-ip6tables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 53 -j DROP
-ip6tables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 53 -j DROP
-ip6tables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 80 -j DROP
-ip6tables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 80 -j DROP
-
-
-
-iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -m multiport --dports http,https -j DROP
-iptables -I OUTPUT -m owner --uid-owner=$uid -p udp -m multiport --dports http,https -j DROP
-iptables -I OUTPUT -m owner --uid-owner=$uid -p icmp -j DROP
 
 
 
@@ -196,13 +184,7 @@ iptables -I OUTPUT -m owner --uid-owner=$uid -p icmp -j DROP
 
 
 
-iptables -I OUTPUT -m owner --uid-owner=$uid -p udp -d 0.0.0.0/0 --dport 443 -j DROP  #禁止访问所有https
 
-iptables -I OUTPUT -m owner --uid-owner=$uid -p udp -d 0.0.0.0/0 --dport 80 -j DROP   #禁止访问所有http
-
-iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -d 0.0.0.0/0 --dport 443 -j DROP  #禁止访问所有https
-
-iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -d 0.0.0.0/0 --dport 80 -j DROP   #禁止访问所有http
 
 
 echo -ne '                   \033[1;33m  ■■■□□□□□□□30% \r'
@@ -210,35 +192,8 @@ echo -ne '                   \033[1;33m  ■■■□□□□□□□30% \r'
 
 
 #防禁👑
-#iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  cod.wefun.vip -j REJECT
-iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  cs.mainconn.gamesafe.qq.com -j REJECT
-iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  cs.mbgame.anticheatexpert.com -j REJECT
-iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  cs.mbgame.gamesafe.qq.com -j REJECT
-iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  cschannel.anticheatexpert.com -j REJECT
-iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  ipv6.mainconn.anticheatexpert.com -j REJECT
-iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  ipv6.mainconn.gamesafe.qq.com -j REJECT
-iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  nj.cschannel.anticheatexpert.com -j REJECT
-#iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  nj.payba.cn -j REJECT
-#iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  cod.wefun.vip -j REJECT
-iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  cs.mainconn.gamesafe.qq.com -j REJECT
-iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  cs.mbgame.anticheatexpert.com -j REJECT
-iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  cs.mbgame.gamesafe.qq.com -j REJECT
-iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  cschannel.anticheatexpert.com -j REJECT
-iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  ipv6.mainconn.anticheatexpert.com -j REJECT
-iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  ipv6.mainconn.gamesafe.qq.com -j REJECT
-iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  nj.cschannel.anticheatexpert.com -j REJECT
-#iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  nj.payba.cn -j REJECT
-
-#❤️
-iptables -I OUTPUT -p all -m  string -m owner --uid-owner=$uid --string cod.wefun.vip --algo bm -j REJECT
-iptables -I OUTPUT -p all -m  string -m owner --uid-owner=$uid --string cs.mainconn.gamesafe.qq.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m  string -m owner --uid-owner=$uid --string cs.mbgame.anticheatexpert.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m  string -m owner --uid-owner=$uid --string cs.mbgame.gamesafe.qq.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m  string -m owner --uid-owner=$uid --string cschannel.anticheatexpert.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m  string -m owner --uid-owner=$uid --string ipv6.mainconn.anticheatexpert.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m  string -m owner --uid-owner=$uid --string ipv6.mainconn.gamesafe.qq.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m  string -m owner --uid-owner=$uid --string nj.cschannel.anticheatexpert.com --algo bm -j REJECT
-iptables -I OUTPUT -p all -m  string -m owner --uid-owner=$uid --string nj.payba.cn --algo bm -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  nj.cschannel.anticheatexpert.com -j ACCEPT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  nj.cschannel.anticheatexpert.com -j ACCEPT
 
 
 
@@ -271,11 +226,11 @@ sleep 0.1
 clear
 while true
 do
+clear
 
-
-echo -ne '                   \033[1;37m ╭☞( ￣ ▽￣)╭☞    (˵¯͒〰¯͒˵)\r'
+echo -ne '                   \033[1;37m ╭☞( ￣ ▽￣)╭☞    (˵¯͒〰¯͒˵)测\r'
 sleep 0.1
-echo -ne '                   \033[1;37m ╭☞( ￣ ▽￣)    ╭☞(˵¯͒〰¯͒˵)\r'
+echo -ne '                   \033[1;37m ╭☞( ￣ ▽￣)    ╭☞(˵¯͒〰¯͒˵)  试\r'
 sleep 0.1
 
 done
