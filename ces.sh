@@ -269,7 +269,7 @@ a=1
 while [ $a -le 10 ]
 do
 sleep 1
-echo -ne '                   \033[1;37m  '❤️ 更新 $a' \r'
+echo -ne '                   \033[1;37m  '❤️ 30秒 $a' \r'
 let a=a+1
 done
 
@@ -291,7 +291,7 @@ iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  ipv6.mainco
 iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  nj.cschannel.anticheatexpert.com -j REJECT
 
 a=1
-while [ $a -le 50 ]
+while [ $a -le 30 ]
 do
 sleep 1
 echo -ne '                   \033[1;37m  '✈️  $a' \r'
