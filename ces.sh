@@ -191,9 +191,31 @@ echo -ne '                   \033[1;33m  ■■■□□□□□□□30% \r'
 
 
 
+#测试禁网
+#iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  nj.cschannel.anticheatexpert.com -j ACCEPT
+#iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  nj.cschannel.anticheatexpert.com -j ACCEPT
+
+
 #防禁👑
-iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  nj.cschannel.anticheatexpert.com -j ACCEPT
-iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  nj.cschannel.anticheatexpert.com -j ACCEPT
+#iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  cod.wefun.vip -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  cs.mainconn.gamesafe.qq.com -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  cs.mbgame.anticheatexpert.com -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  cs.mbgame.gamesafe.qq.com -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  cschannel.anticheatexpert.com -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  ipv6.mainconn.anticheatexpert.com -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  ipv6.mainconn.gamesafe.qq.com -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  nj.cschannel.anticheatexpert.com -j REJECT
+#iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  nj.payba.cn -j REJECT
+#iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  cod.wefun.vip -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  cs.mainconn.gamesafe.qq.com -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  cs.mbgame.anticheatexpert.com -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  cs.mbgame.gamesafe.qq.com -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  cschannel.anticheatexpert.com -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  ipv6.mainconn.anticheatexpert.com -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  ipv6.mainconn.gamesafe.qq.com -j REJECT
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  nj.cschannel.anticheatexpert.com -j REJECT
+#iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  nj.payba.cn -j REJECT
+
 
 
 
@@ -226,11 +248,11 @@ sleep 0.1
 clear
 while true
 do
-clear
 
-echo -ne '                   \033[1;37m ╭☞( ￣ ▽￣)╭☞    (˵¯͒〰¯͒˵)测\r'
+
+echo -ne '                   \033[1;37m ╭☞( ￣ ▽￣)╭☞    (˵¯͒〰¯͒˵)\r'
 sleep 0.1
-echo -ne '                   \033[1;37m ╭☞( ￣ ▽￣)    ╭☞(˵¯͒〰¯͒˵)  试\r'
+echo -ne '                   \033[1;37m ╭☞( ￣ ▽￣)    ╭☞(˵¯͒〰¯͒˵)\r'
 sleep 0.1
 
 done
