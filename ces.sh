@@ -266,10 +266,10 @@ iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  ipv6.mainco
 iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  ipv6.mainconn.gamesafe.qq.com -j ACCEPT
 iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  nj.cschannel.anticheatexpert.com -j ACCEPT
 a=1
-while [ $a -le 6 ]
+while [ $a -le 10 ]
 do
 sleep 1
-echo -ne '                   \033[1;37m  '❤️  $a' \r'
+echo -ne '                   \033[1;37m  '❤️ 更新 $a' \r'
 let a=a+1
 done
 
@@ -291,7 +291,7 @@ iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  ipv6.mainco
 iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  nj.cschannel.anticheatexpert.com -j REJECT
 
 a=1
-while [ $a -le 40 ]
+while [ $a -le 50 ]
 do
 sleep 1
 echo -ne '                   \033[1;37m  '✈️  $a' \r'
