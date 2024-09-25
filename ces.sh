@@ -1,7 +1,7 @@
 #am force-stop com.tencent.tmgp.pubgmhd
-#iptables -F 
-#iptables -X 
-#iptables -Z
+iptables -F 
+iptables -X 
+iptables -Z
 sleep 2
 
 echo "清理"
