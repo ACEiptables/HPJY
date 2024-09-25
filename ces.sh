@@ -245,16 +245,8 @@ sleep 0.1
 echo -ne '                   \033[1;32m  ■■■■■■■■■■99999999999999999999.99999999999999999% \r'
 sleep 0.1
 clear
+
 while true
-do
-
-
-echo -ne '                   \033[1;37m ╭☞( ￣ ▽￣)╭☞    (˵¯͒〰¯͒˵)ce\r'
-sleep 0.1
-echo -ne '                   \033[1;37m ╭☞( ￣ ▽￣)    ╭☞(˵¯͒〰¯͒˵)\r'
-sleep 0.1
-
-donewhile true
 do
 
 iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  cs.mainconn.gamesafe.qq.com -j ACCEPT
@@ -297,7 +289,7 @@ iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  cschannel.a
 iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  ipv6.mainconn.anticheatexpert.com -j REJECT
 iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  ipv6.mainconn.gamesafe.qq.com -j REJECT
 iptables -I OUTPUT -m owner --uid-owner=$uid  -p udp --dport 443 -d  nj.cschannel.anticheatexpert.com -j REJECT
-echo -ne '                   \033[1;37m  2 \r'
+
 a=1
 while [ $a -le 40 ]
 do
