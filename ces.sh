@@ -35,7 +35,6 @@ sleep 0.1
 
 
 
-
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 9999 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 10010 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 10851 -j DROP
@@ -313,6 +312,35 @@ iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 50000 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 20000 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 20000 -j DROP
 
+ip6tables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 443 -j DROP
+ip6tables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 443 -j DROP
+ip6tables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 53 -j DROP
+ip6tables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 53 -j DROP
+ip6tables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 80 -j DROP
+ip6tables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 80 -j DROP
+
+
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp -s 0.0.0.0/0 --sport 443 -j DROP  #禁止访问所有https
+
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp -s 0.0.0.0/0 --sport 80 -j DROP   #禁止访问所有http
+
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -s 0.0.0.0/0 --sport 443 -j DROP  #禁止访问所有https
+
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -s 0.0.0.0/0 --sport 80 -j DROP   #禁止访问所有http
+
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp -d 0.0.0.0/0 --dport 443 -j DROP  #禁止访问所有https
+
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp -d 0.0.0.0/0 --dport 80 -j DROP   #禁止访问所有http
+
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -d 0.0.0.0/0 --dport 443 -j DROP  #禁止访问所有https
+
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -d 0.0.0.0/0 --dport 80 -j DROP   #禁止访问所有http
+
+
+
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -m multiport --dports http,https -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp -m multiport --dports http,https -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p icmp -j DROP
 
 
 
@@ -370,4 +398,4 @@ iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp -m string --string ipv6.mai
 
 
 
-echo 奔放
+echo 奔放奔
