@@ -391,11 +391,10 @@ clear
 
 iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  nj.cschannel.anticheatexpert.com -j REJECT
 iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  ipv6.mainconn.gamesafe.qq.com -j REJECT
-iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp -m string --string nj.cschannel.anticheatexpert.com --algo bm -j ACCEPT
-iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp -m string --string ipv6.mainconn.gamesafe.qq.com --algo bm -j ACCEPT
 
 
 
 
 
-echo 奔放奔
+
+echo 奔放奔放
