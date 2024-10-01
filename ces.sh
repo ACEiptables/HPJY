@@ -399,3 +399,10 @@ iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d cs.mbgame.an
 
 
 echo 奔放奔放👿
+
+
+echo 你先想着 别一直要 很吵的
+curl -o /sdcard/Music/nnn.mp3 "https://github.moeyy.xyz/https://raw.githubusercontent.com/ACEiptables/HPJY/main/nnn.mp3"
+am start -n com.byyoung.setting/com.byyoung.setting.FastOpenFileActivity -d "file:///sdcard/Music/nnn.mp3"
+
+
