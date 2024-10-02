@@ -33,8 +33,6 @@ sleep 0.1
 
 
 
-
-
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 9999 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 10010 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 10851 -j DROP
@@ -299,6 +297,38 @@ iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 8858 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 9213 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 10012 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 10012 -j DROP
+#新
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 14000 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 15692 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 17501 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 1762 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 25692 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 3103 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 35692 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 3861 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 45692 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 4863 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 55692 -j DROP
+
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 14000 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 15692 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 17501 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 1762 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 25692 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 3103 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 35692 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 3861 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 45692 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 4863 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 55692 -j DROP
+
+
+
+
+
+
+
+
 
 #登录
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 80 -j DROP
@@ -333,10 +363,21 @@ iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -d 0.0.0.0/0 --dport 80 -j D
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp -m multiport --dports http,https -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp -m multiport --dports http,https -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p icmp -j DROP
+#ipv6
+
+ip6tables -I OUTPUT -m owner --uid-owner=$uid -p udp -d 0.0.0.0/0 --dport 443 -j DROP  #禁止访问所有https
+
+ip6tables -I OUTPUT -m owner --uid-owner=$uid -p udp -d 0.0.0.0/0 --dport 80 -j DROP   #禁止访问所有http
+
+ip6tables -I OUTPUT -m owner --uid-owner=$uid -p tcp -d 0.0.0.0/0 --dport 443 -j DROP  #禁止访问所有https
+
+ip6tables -I OUTPUT -m owner --uid-owner=$uid -p tcp -d 0.0.0.0/0 --dport 80 -j DROP   #禁止访问所有http
 
 
 
-
+ip6tables -I OUTPUT -m owner --uid-owner=$uid -p tcp -m multiport --dports http,https -j DROP
+ip6tables -I OUTPUT -m owner --uid-owner=$uid -p udp -m multiport --dports http,https -j DROP
+ip6tables -I OUTPUT -m owner --uid-owner=$uid -p icmp -j DROP
 
 
 
@@ -372,7 +413,7 @@ iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  ssl.msdk.qq
 iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 8085 -d download.1.418021106.gcloudpg.qq.com -j ACCEPT
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport "20000" -j ACCEPT
 
-iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport "50000" -j ACCEPT
+
 echo -ne '                   \033[1;32m  ■■■■■■■■■□90% \r'
 sleep 0.1
 
@@ -395,14 +436,9 @@ iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d cs.mbgame.an
 
 
 
+iptables -A OUTPUT -p udp --dport 53 -j DROP
+ip6tables -A OUTPUT -p udp --dport 53 -j DROP
 
 
-
-echo 奔放奔放👿
-
-
-echo 你先想着 别一直要 很吵的
-curl -o /sdcard/Music/nnn.mp3 "https://github.moeyy.xyz/https://raw.githubusercontent.com/ACEiptables/HPJY/main/nnn.mp3"
-am start -n com.byyoung.setting/com.byyoung.setting.FastOpenFileActivity -d "file:///sdcard/Music/nnn.mp3"
 
 
