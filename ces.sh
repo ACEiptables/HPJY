@@ -436,8 +436,7 @@ iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d cs.mbgame.an
 
 
 
-iptables -A OUTPUT -p udp --dport 53 -j DROP
-ip6tables -A OUTPUT -p udp --dport 53 -j DROP
+
 
 
 
