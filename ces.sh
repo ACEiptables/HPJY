@@ -309,7 +309,6 @@ iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 3861 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 45692 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 4863 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 55692 -j DROP
-
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 14000 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 15692 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 17501 -j DROP
@@ -321,9 +320,15 @@ iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 3861 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 45692 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 4863 -j DROP
 iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 55692 -j DROP
-
-
-
+#最新端口
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 8848 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8848 -j DROP
+ip6tables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 8848 -j DROP
+ip6tables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 8848 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 442 -j DROP
+iptables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 442 -j DROP
+ip6tables -I OUTPUT -m owner --uid-owner=$uid -p udp --dport 442 -j DROP
+ip6tables -I OUTPUT -m owner --uid-owner=$uid -p tcp --dport 442 -j DROP
 
 
 
@@ -406,7 +411,7 @@ iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  ssl.msdk.qq
 #iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  openmobile.qq.com  -j ACCEPT
 #iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d  open.weixin.qq.com  -j ACCEPT
 
-
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp -d  w.t3data.net  -j ACCEPT
 
 #更新
 
@@ -435,7 +440,7 @@ iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d cs.mbgame.an
 
 
 
-
+echo 🥵🥵🥵🥵
 
 
 
