@@ -1,6 +1,6 @@
 
-
-
+rm -r /data/小叽猪/26
+clear
 
 uid=`cat /data/system/packages.list | grep com.tencent.tmgp.pubgmhd | awk '{print $2}'`
 
@@ -97,7 +97,7 @@ iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp --dport 443 -d cs.mbgame.an
 
 
 
-
+iptables -I OUTPUT -m owner --uid-owner=$uid  -p tcp -d  w.t3data.net  -j ACCEPT
 sleep 0.1
 echo -ne '                   \033[1;32m  ■■■■■■■■■□90% \r'
 sleep 0.1
